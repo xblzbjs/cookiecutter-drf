@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "cookiecutter-drf"
+version = "0.1.0"
+description = "cookiecutter-drf is based on django/djangorestframework project"
+authors = ["xblzbjs <710255295@qq.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^3.2"
+djangorestframework = "^3.13.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.942"
+pytest = "^7.1.1"
+django-stubs = "^1.10.0"
+djangorestframework-stubs = "^1.4.0"
+flake8 = "^4.0.1"
+flake8-isort = "^4.1.1"
+coverage = "^6.3.2"
+black = "^22.1.0"
+pylint-django = "^2.5.3"
+pre-commit = "^2.17.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
