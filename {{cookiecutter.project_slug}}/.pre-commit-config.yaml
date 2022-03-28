@@ -1,6 +1,6 @@
 exclude: "^docs/|/migrations/"
 default_language_version:
-    python: python3.8
+  python: python3.8
 default_stages: [commit]
 
 repos:
@@ -17,10 +17,28 @@ repos:
 
   # security linter
   - repo: https://github.com/pycqa/bandit
-    rev: 1.6.2
+    rev: 1.7.4
     hooks:
       - id: bandit
-        args: ['-iii', '-ll']
+        args: ["-iii", "-ll"]
+
+  - repo: https://github.com/pycqa/pylint
+    rev: "v2.13.2"
+    hooks:
+      - id: pylint
+        exclude: "[a-zA-Z]*/(migrations)/(.)*"
+        args:
+          [
+            "--load-plugins=pylint_django",
+            "--django-settings-module=config.settings.dev",
+          ]
+        additional_dependencies: [pylint_django]
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.31.1
+    hooks:
+      - id: pyupgrade
+        args: ["--py37-plus", "--py38-plus"]
 
   - repo: https://github.com/psf/black
     rev: 22.1.0
